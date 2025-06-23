@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const importRouter = require('./routes/import');
+const importApiRouter = require('./routes/api/import');
+const exportApiRouter = require('./routes/api/export');
 
 const db = require("./models");
 var cors = require("cors");
@@ -24,6 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/import', importRouter);
+app.use('/api/v1/import', importApiRouter);
+app.use('/api/v1/export', exportApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
