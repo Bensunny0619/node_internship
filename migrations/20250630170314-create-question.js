@@ -18,6 +18,11 @@ module.exports = {
       answer: {
         type: Sequelize.STRING
       },
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: 'multiple_choice'
+      },
       quizId: {
         type: Sequelize.INTEGER
       },
